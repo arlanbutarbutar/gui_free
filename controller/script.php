@@ -80,33 +80,7 @@ if(isset($_SESSION['id-admin'])){
   if(isset($_POST['code-project'])){
     $_SESSION['route']=htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $_POST['route']))));
     header("Location: views");exit();}
-  if(isset($_POST['db-wordpress'])){
-    if(dbWordpress($_POST)>0){
-      $_SESSION['message-success']="Database wordpress telah dibuat (Default: db_wordpress).";
-      $_SESSION['time-message']=time();
-      header("Location: ".$_SESSION['page-to']); exit();
-    }else{
-      $_SESSION['message-warning']="Maaf, sepertinya ada kesalahan saat menyambungkan ke database.";
-      $_SESSION['time-message']=time();
-      header("Location: ".$_SESSION['page-to']); exit();
-    }
-  }
-  $db_wordpress=mysqli_query($conn, "SELECT * FROM t_databases WHERE name='db_wordpress'");
 }
 if(isset($_SESSION['route'])){
   $route=htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $_SESSION['route']))));
 }
-
-// ==== Fitur pencarian file ====
-// $filter = "in";
-// $folder = '../'.$route;
-// $proses = new RecursiveDirectoryIterator("$folder");
-// foreach(new RecursiveIteratorIterator($proses) as $file)
-// {
-//   if (!((strpos(strtolower($file), $filter)) === false) || empty($filter))
-//   {
-//     $tampil[] = preg_replace("#/#", "/", $file);
-//   }
-// }
-// sort($tampil);
-// print_r($tampil);

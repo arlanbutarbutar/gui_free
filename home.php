@@ -252,19 +252,6 @@
                     </div>
                   </a>
                 </div>
-                <div class="col-lg-4">
-                  <a href="http://127.0.0.1:1010/wordpress/" class="text-decoration-none" target="_blank">
-                    <div class="card card-body border-0 shadow text-dark text-center" style="border-radius: 15px;">
-                      <img src="resources/img/wordpress.png" alt="Logo Framework" style="width: 75px" class="m-auto">
-                      <h3>WordPress</h3>
-                      <?php if(mysqli_num_rows($db_wordpress)==0){?>
-                      <form action="" method="POST">
-                        <button type="submit" name="db-wordpress" class="btn btn-primary btn-sm shadow" style="border-radius: 10px;">Create</button>
-                      </form>
-                      <?php }?>
-                    </div>
-                  </a>
-                </div>
               </div>
               <div class="card card-table-one border-0 shadow" style="border-radius: 15px;">
                 <h6 class="card-title">All Project</h6>

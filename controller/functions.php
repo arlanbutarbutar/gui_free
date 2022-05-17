@@ -367,9 +367,4 @@ if(isset($_SESSION['id-admin'])&&$_SESSION['id-admin']!=""){
     $id_menu=htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-menu']))));
     mysqli_query($conn, "DELETE FROM t_menu_navbar WHERE id_menu_navbar='$id_menu'");
     return mysqli_affected_rows($conn);}
-  function dbWordpress(){global $conn,$idUser;
-    mysqli_query($conn, "CREATE DATABASE db_wordpress");
-    mysqli_query($conn, "INSERT INTO t_databases(id_user,name) VALUES('$idUser','db_wordpress')");
-    return mysqli_affected_rows($conn);}
-  // function __($data){global $conn;}
 }
