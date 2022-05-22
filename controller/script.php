@@ -27,8 +27,8 @@ if(isset($_SESSION['id-admin'])){
   $result1a=mysqli_query($conn, "SELECT * FROM t_projects WHERE id_user='$idUser'");
   $total1a=mysqli_num_rows($result1a);
   $total_page1a=ceil($total1a/$data1a);
-  $page1a=(isset($_GET['page']))?$_GET['page']:1;
-  $awal_data1a=($data1a*$page1a)-$data1a;
+  $page1a=isset($_GET["page"])?(int)$_GET["page"]:1;
+  $awal_data1a=($page1a>1)?($page1a*$data1a)-$data1a:0;
   $project=mysqli_query($conn, "SELECT * FROM t_projects WHERE id_user='$idUser' ORDER BY id_project DESC LIMIT $awal_data1a, $data1a");
   if(isset($_POST['add-project'])){
     if(createProject($_POST)>0){
