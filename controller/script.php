@@ -23,13 +23,13 @@ if(isset($_SESSION['id-admin'])){
   $nameServer=htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $_SESSION['nameServer']))));
   $mailServer=htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $_SESSION['mailServer']))));
   $projectView=mysqli_query($conn, "SELECT * FROM t_projects WHERE id_user='$idUser' AND progress<100");
-  $data1=25;
-  $result1=mysqli_query($conn, "SELECT * FROM t_projects WHERE id_user='$idUser'");
-  $total1=mysqli_num_rows($result1);
-  $total_page1=ceil($total1/$data1);
-  $page1=(isset($_GET['page']))?$_GET['page']:1;
-  $awal_data1=($data1*$page1)-$data1;
-  $project=mysqli_query($conn, "SELECT * FROM t_projects WHERE id_user='$idUser' ORDER BY id_project ASC LIMIT $awal_data1, $data1");
+  $data1a=25;
+  $result1a=mysqli_query($conn, "SELECT * FROM t_projects WHERE id_user='$idUser'");
+  $total1a=mysqli_num_rows($result1a);
+  $total_page1a=ceil($total1a/$data1a);
+  $page1a=(isset($_GET['page']))?$_GET['page']:1;
+  $awal_data1a=($data1a*$page1a)-$data1a;
+  $project=mysqli_query($conn, "SELECT * FROM t_projects WHERE id_user='$idUser' ORDER BY id_project DESC LIMIT $awal_data1a, $data1a");
   if(isset($_POST['add-project'])){
     if(createProject($_POST)>0){
       $_SESSION['message-success']="Data projek berhasil ditambahkan.";

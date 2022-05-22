@@ -368,6 +368,36 @@
                       <?php }}?>
                     </tbody>
                   </table>
+                  <?php if($total1a>$data1a){?>
+                  <div class="d-flex mt-4 flex-wrap">
+                    <p class="text-muted">Showing 1 to <?= $data1a?> of <?= $total1a?> entries</p>
+                    <nav class="ml-auto">
+                      <ul class="pagination separated pagination-info">
+                        <?php if(isset($page1a)){if(isset($total_page1a)){if($page1a>1):?>
+                          <li class="page-item">
+                            <a href="<?= $_SESSION['page-to']?>?page=<?= $page1a-1;?>/" class="btn btn-primary btn-sm" style="border-bottom-left-radius: 10px;border-top-left-radius: 10px;"><i class="fas fa-chevron-left mt-1"></i></a>
+                          </li>
+                        <?php endif; for($i=1; $i<=$total_page1a; $i++): if($i<=4): if($i==$page1a):?>
+                          <li class="page-item active">
+                            <a href="<?= $_SESSION['page-to']?>?page=<?= $i;?>/" class="btn btn-primary btn-sm"><?= $i;?></a>
+                          </li>
+                        <?php else : ?>
+                          <li class="page-item">
+                            <a href="<?= $_SESSION['page-to']?>?page=<?= $i;?>/" class="btn btn-outline-primary btn-sm"><?= $i?></a>
+                          </li>
+                        <?php endif; endif; endfor; if($total_page1a>=4):?>
+                          <li class="page-item">
+                            <a href="<?= $_SESSION['page-to']?>?page=<?php if($page1a>4){echo $page1a;}else if($page1a<=4){echo '5';}?>/" class="btn btn-<?php if($page1a<=4){echo 'outline-';}?>primary btn-sm"><?php if($page1a>4){echo $page1a;}else if($page1a<=4){echo '5';}?></a>
+                          </li>
+                        <?php endif; if($page1a<$total_page1a && $total_page1a>=4):?>
+                          <li class="page-item">
+                            <a href="<?= $_SESSION['page-to']?>?page=<?= $page1a+1;?>/" class="btn btn-primary btn-sm" style="border-bottom-right-radius: 10px;border-top-right-radius: 10px;"><i class="fas fa-chevron-right mt-1"></i></a>
+                          </li>
+                        <?php endif; }}?>
+                      </ul>
+                    </nav>
+                  </div>
+                  <?php }?>
                 </div>
               </div>
             </div>
